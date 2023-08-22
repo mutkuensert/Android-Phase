@@ -8,7 +8,8 @@
 * [Contact](#contact)
 
 ## About The Library
-An Android library to hold any data within states. [Movee](https://github.com/mutkuensert/Movee) project on Github.
+An Android library to hold any data within states.
+For the example implementation of this library, you can look at my [Movee](https://github.com/mutkuensert/Movee) project on Github.
 
 ## Adding The Dependency
 Add jitpack into the repositories
@@ -19,7 +20,7 @@ maven { url 'https://jitpack.io' }
 
 Add the dependency in build.gradle file.
 ```gradle
-implementation 'com.github.mutkuensert:Android-Phase:v1.0.4.2'
+implementation 'com.github.mutkuensert:Android-Phase:v1.0.4.3'
 ```
 
 **You can also add the library locally. To do that:**
