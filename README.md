@@ -9,7 +9,8 @@
 
 ## About The Library
 An Android library to hold any data within states.
-For the example implementation of this library, you can look at my [Movee](https://github.com/mutkuensert/Movee) project on Github.
+For the example use of this library, you can look at my [Movee](https://github.com/mutkuensert/Movee) project on Github.
+If you want, you can also use this class [GetPhaseFlow](https://gist.github.com/mutkuensert/11093b3c8b48fa130b0b35bcb5e9faf1).
 
 ## Adding The Dependency
 Add jitpack into the repositories
