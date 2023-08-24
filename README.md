@@ -40,10 +40,21 @@ implementation files('libs/AndroidPhase-release.aar')
 ```
 
 ## Example Use
+```kotlin
+suspend fun getTvShowDetails(tvShowId: Int): Phase<TvShowDetails> {
+    val response = tvShowsApi.getTvShowDetails(tvShowId)
+
+    return if (response.isSuccessful) {
+        Phase.Success(data = response.body()?.mapToDomainModel())
+    } else {
+        Phase.Error(message = "Unsuccessful response.")
+    }
+}
+```
 
 ```kotlin
 @Composable
-private fun TvDetails(
+fun TvShowDetails(
     phase: Phase<TvShowDetails>,
     loadTvCastIfSuccessful: () -> Unit
 ) {
@@ -51,7 +62,7 @@ private fun TvDetails(
         onLoading = { Loading() },
         onSuccess = {
             if (data != null) {
-                TvDetailsItem(data)
+                TvDetailsItem(data!!)
                 LaunchedEffect(Unit) { loadTvCastIfSuccessful() }
             }
         },
