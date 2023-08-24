@@ -2,35 +2,31 @@ package com.mutkuensert.androidphase
 
 import androidx.compose.runtime.Composable
 
-sealed class Phase<T>(
-    open val data: T? = null,
-    open val message: String?,
-    open val error: Throwable? = null
-) {
+sealed class Phase<T : Any> {
 
-    class Standby<T>(
-        override val data: T? = null,
-        override val message: String? = null,
-        override val error: Throwable? = null
-    ) : Phase<T>(data, message, error)
+    class Standby<T : Any>(
+        val data: T? = null,
+        val message: String? = null,
+        val error: Throwable? = null
+    ) : Phase<T>()
 
-    class Loading<T>(
-        override val data: T? = null,
-        override val message: String? = null,
-        override val error: Throwable? = null
-    ) : Phase<T>(data, message, error)
+    class Loading<T : Any>(
+        val data: T? = null,
+        val message: String? = null,
+        val error: Throwable? = null
+    ) : Phase<T>()
 
-    class Success<T>(
-        override val data: T? = null,
-        override val message: String? = null,
-        override val error: Throwable? = null
-    ) : Phase<T>(data, message, error)
+    class Success<T : Any>(
+        val data: T,
+        val message: String? = null,
+        val error: Throwable? = null
+    ) : Phase<T>()
 
-    class Error<T>(
-        override val data: T? = null,
-        override val message: String? = null,
-        override val error: Throwable? = null
-    ) : Phase<T>(data, message, error)
+    class Error<T : Any>(
+        val data: T? = null,
+        val message: String? = null,
+        val error: Throwable? = null
+    ) : Phase<T>()
 
     fun execute(
         onStandby: Phase<T>.() -> Unit = {},
@@ -48,10 +44,10 @@ sealed class Phase<T>(
 
     @Composable
     fun Execute(
-        onStandby: @Composable Phase<T>.() -> Unit = {},
-        onLoading: @Composable Phase<T>.() -> Unit = {},
-        onSuccess: @Composable Phase<T>.() -> Unit = {},
-        onError: @Composable Phase<T>.() -> Unit = {}
+        onStandby: @Composable Standby<T>.() -> Unit = {},
+        onLoading: @Composable Loading<T>.() -> Unit = {},
+        onSuccess: @Composable Success<T>.() -> Unit = {},
+        onError: @Composable Error<T>.() -> Unit = {}
     ) {
         when (this) {
             is Standby -> onStandby.invoke(this)

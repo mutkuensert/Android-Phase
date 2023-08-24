@@ -21,7 +21,7 @@ maven { url 'https://jitpack.io' }
 
 Add the dependency in build.gradle file.
 ```gradle
-implementation 'com.github.mutkuensert:Android-Phase:v1.1.0.1'
+implementation 'com.github.mutkuensert:Android-Phase:v1.2.0.0'
 ```
 
 **You can also add the library locally. To do that:**
