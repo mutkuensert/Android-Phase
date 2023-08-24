@@ -42,7 +42,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.mutkuensert'
             artifactId = 'androidphase'
-            version = 'v1.1.0.0'
+            version = 'v1.1.0.1'
 
             afterEvaluate {
                 from components.release

@@ -21,7 +21,7 @@ maven { url 'https://jitpack.io' }
 
 Add the dependency in build.gradle file.
 ```gradle
-implementation 'com.github.mutkuensert:Android-Phase:v1.1.0.0'
+implementation 'com.github.mutkuensert:Android-Phase:v1.1.0.1'
 ```
 
 **You can also add the library locally. To do that:**
@@ -43,7 +43,7 @@ implementation files('libs/AndroidPhase-release.aar')
 
 ```kotlin
 @Composable
-private fun TvDetailsResource(
+private fun TvDetails(
     phase: Phase<TvShowDetails>,
     loadTvCastIfSuccessful: () -> Unit
 ) {
