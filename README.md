@@ -21,7 +21,7 @@ maven { url 'https://jitpack.io' }
 
 Add the dependency in build.gradle file.
 ```gradle
-implementation 'com.github.mutkuensert:Android-Phase:v1.2.0.0'
+implementation 'com.github.mutkuensert:Android-Phase:v2.0.0'
 ```
 
 **You can also add the library locally. To do that:**
@@ -52,6 +52,7 @@ suspend fun getTvShowDetails(tvShowId: Int): Phase<TvShowDetails> {
 }
 ```
 
+You can use Compose extension: [Phase Compose Extension](https://github.com/mutkuensert/Android-Phase-Compose-Extension)
 ```kotlin
 @Composable
 fun TvShowDetails(
