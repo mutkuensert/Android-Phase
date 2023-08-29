@@ -55,17 +55,19 @@ suspend fun getTvShowDetails(tvShowId: Int): Phase<TvShowDetails> {
 You can use Compose extension: [Phase Compose Extension](https://github.com/mutkuensert/Android-Phase-Compose-Extension)
 ```kotlin
 @Composable
-fun TvShowDetails(
+private fun TvShowDetails(
     phase: Phase<TvShowDetails>,
     loadTvCastIfSuccessful: () -> Unit
 ) {
     phase.Execute(
         onLoading = { Loading() },
-        onSuccess = {
-            TvDetailsItem(data)
+        onSuccess = { //it: TvShowDetails
+            TvDetailsItem(it)
             LaunchedEffect(Unit) { loadTvCastIfSuccessful() }
         },
-        onError = { LocalContext.current.showToastIfNotNull(message) })
+        onError = { //it: Phase.Error<TvShowDetails>
+            LocalContext.current.showToastIfNotNull(it.message)
+        })
 }
 ```
 
